@@ -316,12 +316,3 @@ olist-data-engineering/
 
 ---
 
-## 👤 Author
-
-**[Your Name]**  
-Data Engineer | BI Developer  
-[LinkedIn](https://linkedin.com/in/your-profile) • [GitHub](https://github.com/your-username)
-
----
-
-*Dataset: [Olist Brazilian E-Commerce](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce) — licensed under CC BY-NC-SA 4.0*
