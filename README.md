@@ -74,7 +74,7 @@ Kaggle CSV Files
 
 **Schema Diagram:**
 
-![Database Schema](screenshots/Database_Schema.png)
+![Database Schema](screenshots/Database Schema.png)
 
 ---
 
@@ -107,7 +107,7 @@ The DW follows a **Star Schema** with:
 
 **Warehouse Schema Diagram:**
 
-![Data Warehouse Schema](screenshots/Data_Warehouse_Schema.png)
+![Data Warehouse Schema](screenshots/Data Warehouse Schema.png)
 
 ---
 
@@ -124,7 +124,7 @@ Implemented using the **Slowly Changing Dimension** component:
 
 > 99,441 rows processed
 
-![SCD Type 2 Flow](screenshots/DIm_customer_SCD_.png)
+![SCD Type 2 Flow](screenshots/Dim_customer SCD_.png)
 
 ---
 
