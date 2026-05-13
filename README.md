@@ -124,7 +124,7 @@ Implemented using the **Slowly Changing Dimension** component:
 
 > 99,441 rows processed
 
-![SCD Type 2 Flow](![SCD Type 2 Flow](Dim_customer(SCD).png))
+![SCD Type 2 Flow](![SCD Type 2 Flow](screenshots/Dim_customer(SCD).png))
 
 ---
 
