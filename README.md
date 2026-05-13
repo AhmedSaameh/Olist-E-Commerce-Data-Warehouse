@@ -162,7 +162,7 @@ To support future data updates without full reloads:
 3. `Get_max_date_after_entering_new_data` — retrieves new max after load
 4. `Update_max_date` — updates the watermark table
 
-![Incremental Load](screenshots/Fact_orders__Incremental_Load_.png)
+![Incremental Load](screenshots/Fact_orders(Incremental_Load).png)
 
 ---
 
@@ -203,7 +203,7 @@ Built two Analysis Services multidimensional cubes:
 - Line chart: Total Revenue by Month
 - Bar chart: Top 10 Product Categories by Revenue (health_beauty leads at 1.30M)
 
-![Sales Overview](screenshots/Sales_Overview__Power_BI_.png)
+![Sales Overview](screenshots/Sales_Overview(Power_BI).png)
 
 ---
 
@@ -214,7 +214,7 @@ Built two Analysis Services multidimensional cubes:
 - Bar chart: Top 10 Cities by Orders (São Paulo: 18.6K)
 - Bar chart: Top 10 States by Orders (SP: 50K)
 
-![Customer Analysis](screenshots/Customer_Analysis__Power_BI_.png)
+![Customer Analysis](screenshots/Customer_Analysis(Power_BI).png)
 
 ---
 
@@ -225,7 +225,7 @@ Built two Analysis Services multidimensional cubes:
 - Line chart: Avg Delivery Days by Month (fastest in August: ~8.5 days)
 - Donut chart: Orders by Status (delivered: 97.82%)
 
-![Delivery Performance](screenshots/Delivery_Preformance__Power_BI_.png)
+![Delivery Performance](screenshots/Delivery_Preformance(Power_BI).png)
 
 ---
 
@@ -236,7 +236,7 @@ Built two Analysis Services multidimensional cubes:
 - Bar chart: Top 10 Sellers by Revenue
 - Bar chart: Top 10 Seller Cities by Revenue (São Paulo: 2.8M)
 
-![Seller Performance](screenshots/Seller_Preformance__Power_BI_.png)
+![Seller Performance](screenshots/Seller_Preformance(Power_BI).png)
 
 ---
 
@@ -247,7 +247,7 @@ Built two Analysis Services multidimensional cubes:
 - Bar chart: Order Distribution by Score (score 5 dominates: 57K)
 - Bar chart: Avg Review Score by Month (consistent ~4.0 across all months)
 
-![Reviews & Satisfaction](screenshots/Reviews___Satisfication___Power_BI_.png)
+![Reviews & Satisfaction](screenshots/Reviews_&_Satisfication(Power_BI).png)
 
 ---
 
