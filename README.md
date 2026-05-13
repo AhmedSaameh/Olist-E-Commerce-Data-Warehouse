@@ -74,7 +74,7 @@ Kaggle CSV Files
 
 **Schema Diagram:**
 
-![Database Schema](screenshots/Database Schema.png)
+![Database Schema](screenshots/Database_Schema.png)
 
 ---
 
