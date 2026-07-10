@@ -1,4 +1,3 @@
-
 -- Table(1) : olist_customers_dataset
 
 SELECT
