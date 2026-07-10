@@ -315,4 +315,3 @@ olist-data-engineering/
 - Most customers place only **1.19 orders** on average — low repeat purchase rate
 
 ---
-
