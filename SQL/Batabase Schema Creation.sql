@@ -1,81 +1,116 @@
-select * from olist_customers_dataset
 
-select COUNT(customer_id)
-from olist_customers_dataset
+-- Table(1) : olist_customers_dataset
 
-select COUNT(DISTINCT(customer_id))
-from olist_customers_dataset
+SELECT
+	COUNT(*) as total, COUNT(DISTINCT customer_id) as customer_id, COUNT(DISTINCT customer_unique_id) as customer_unique_id
+FROM olist_customers_dataset
+/*
+	We'll explore each table to select a primary key column 
+	In this table we find that values of customer_id is unique and other tables have a customer_id not (customer_unique_id)
+	- So I decide to remove customer_unique_id column 
+*/
+ALTER TABLE olist_customers_dataset
+DROP COLUMN customer_unique_id
+
+
+
+-- Table(2) : olist_geolocation_dataset
+select * 
+from olist_geolocation_dataset
 
 /*
-	First --> when I explore customer table, I find that there are two columns describe each customer, so we need to delete one 
-	from them, after some exploration we find that other tables are related to this table via customer_id (this's unique)
-	- So I decided to reomve customer_unique_id
+	I find that the same zip_code appeared one than one time, that because the same zip_code has one than one GPS point
+	- In this case we take the AVG of geolocation_lat and geolocation_lng
 */
-
-select * from olist_geolocation_dataset
-/*
-	there's an important problem --> the zip_code is duplicated because the same zip_code may has more than one GPS point
-	In this case we take the average geolocation_lat and geolocation_lng
-*/
-
-/*				select 
-					geolocation_zip_code_prefix,
-					avg(geolocation_lat) as geolocation_lat,
-					avg(geolocation_lng) as geolocation_lng,
-					max(geolocation_city) as geolocation_city,
-					max(geolocation_state) as geolocation_state
-				from olist_geolocation_dataset
-				group by geolocation_zip_code_prefix
-*/
-
--- this table have a lot of null values in some columns 
-select * from olist_orders_dataset
-where order_delivered_customer_date is null
 
 /*
-	first(order_approved_at) --> if it is NULL & order_status is delivered
-								--> I put the order_purchase_timestamp value in it
-							 --> if order_status is canceled or created we make it equal '1990-01-01'
+	SELECT 
+		geolocation_zip_code_prefix,
+		AVG(geolocation_lat) as geolocation_lat,
+		AVG(geolocation_lng) as geolocation_lng,
+		MAX(geolocation_city) as geolocation_city,
+		MAX(geolocation_state) as geolocation_state
+	INTO olist_geolocation_dataset_new
+	FROM olist_geolocation_dataset
+	GROUP BY geolocation_zip_code_prefix
+	DROP TABLE olist_geolocation_dataset
+	EXEC sp_rename 'olist_geolocation_dataset_new', 'olist_geolocation_dataset'
+*/
 
-	second(order_delivered_carrier_date)	--> if order_status is canceled or created --> we make it '1990-01-01'
-										--> else make it equal order_purchase_timestamp
 
-	third(order_delivered_customer_date)	--> if order_status is canceled or created --> we make it '1990-01-01'
-										--> else make if equal order_estimated_delivary_date
+-- Table(3) : olist_orders_dataset
+
+SELECT *
+FROM olist_orders_dataset
+
+
+/*
+	first(order_approved_at)
+					--> if it is NULL & order_status is delivered
+					--> I put the order_purchase_timestamp value instead of null value
+					--> if order_status is canceled or created we make it equal '1990-01-01'
+
+	second(order_delivered_carrier_date)	
+					--> if order_status is canceled or created --> we make it '1990-01-01'
+					--> else make it equal order_purchase_timestamp
+
+	third(order_delivered_customer_date)	
+					--> if order_status is canceled or created --> we make it '1990-01-01'
+					--> else make if equal order_estimated_delivary_date
 			
 			---- I will handle these columns in SSIS tool 
 */
 
 
-select * from olist_order_items_dataset
+
+
+
+-- Table(4) : olist_order_items_dataset
+SELECT  * 
+FROM olist_order_items_dataset
 -- This table doesn't have any problems 
 
-select * from olist_order_payments_dataset
+
+
+-- Table(5) : olist_order_payments_dataset
+SELECT * 
+FROM olist_order_payments_dataset
 -- This table doesn't have any problems 
 
 
 
-select * from olist_order_reviews_dataset
+-- Table(6) : olist_order_reviews_dataset
+SELECT * 
+FROM olist_order_reviews_dataset
 /*
 		here we can replace nulls in review_comment_title by 'no_title'
 		and replace nulls in review_comment_message by 'no_message'
 */
 
-select * from olist_products_dataset
+
+-- Table(7) : olist_products_dataset
+SELECT * 
+FROM olist_products_dataset
+SELECT *
+FROM product_category_name_translation
+
 
 /*
 		We can replace category_name by 'unknown' and replace the aother columns with zoer value
 */
 
 
-select * from olist_sellers_dataset
+-- Table(8) : olist_sellers_dataset
+SELECT * 
+FROM olist_sellers_dataset
 -- This table doesn't have any problems  
 
 
 
-select * from product_category_name_translation
+-- Table(9) : product_category_name_translation
+SELECT *
+FROM product_category_name_translation
 -- This table doesn't have any problems  
-
 
 
 
