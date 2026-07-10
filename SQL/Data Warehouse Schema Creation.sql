@@ -1,3 +1,4 @@
+
 Create table Dim_product
 (
 	productID_SK int primary key identity(1,1),
